@@ -45,7 +45,8 @@ def pull_review():
     pullrequest = data['pull_request']
     comment = data['comment']
     speech = users[pullrequest['user']['login']] + ', ' + users[comment['user']['login']] + ' commented on your pull request. Go check it.'
-    call(["./speech.sh", speech])
+    forkMe(speech, 'en-US')
+
     return 'All good!'
 
 @app.route("/cron/good-morning", methods=['GET'])
