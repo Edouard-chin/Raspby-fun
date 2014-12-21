@@ -34,7 +34,7 @@ def pullrequest():
         forkMe(speech, 'en-US')
 
     elif state == 'assigned':
-        speech = users[pullrequest['assignee']['login']] + ', you have been assigned to check the pull request of: ' + users[pullrequest['user']['login']]
+        speech = users[pullrequest['assignee']['login']] + ', you have been assigned to review the pull request of: ' + users[pullrequest['user']['login']]
         forkMe(speech, 'en-US')
 
     return "All good!"
