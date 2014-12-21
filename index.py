@@ -15,7 +15,7 @@ users = {'Edouard-chin': 'édouard', 'rlustin': 'Rafhael', 'aldeck': 'Alexandre'
 def pullrequest():
     data = json.loads(request.data)
     state = data['action']
-    wasMerged = {True: 'merged', False: 'not merged'}
+    wasMerged = {True: 'successfully merged', False: 'not merged'}
     isMergeable = {True: 'can', False: "can not", None: 'I am not sure if it can'}
     pullrequest = data['pull_request']
     if state == 'opened' or state == 'reopened':
@@ -41,7 +41,6 @@ def pull_review():
     comment = data['comment']
     speech = users[pullrequest['user']['login']] + ', ' + users[comment['user']['login']] + ' commented on your pull request. Go check it.'
     call(["./speech.sh", speech])
-    print speech
     return 'All good!'
 
 if __name__ == "__main__":
