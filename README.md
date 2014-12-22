@@ -1,10 +1,8 @@
-Just a simple project to annoy my collegue at work when someone opens a pull request on github :D.
+This project was a joke for my colleague, but appears to be more usefull than I tought.
 
-1. Clone the project
-2. Create a php file called token.php and write inside a variable $accessToken which will contain your github api token.
-2. Download the sound utilities: sudo apt-get install alsa-utils
-3. Edit this file sudo nano /etc/modules and add 'snd_bcm2835'
-4. Install Mplayer sudo apt-get install mplayer
-5. Edit this file sudo nano /etc/mplayer/mplayer.conf and add 'nolirc=yes'
+It's a github notification system (with voice) for pull request, pull request review, and comments on code (more to come).
+It uses the micro Framework Flask combined with github webhooks. And play2wave for the text to speech engine.
 
-You are ready to go!
+Installation:
+
+In progress...
