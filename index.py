@@ -13,7 +13,7 @@ import random
 import os
 
 app = Flask(__name__)
-users = {'Edouard-chin': 'édouard', 'rlustin': 'Rafhael', 'aldeck': 'Alexandre', 'cthoret': 'Clément', 'alexandra-ekra': 'Alexandra', 'jvasseur': 'Jérome', 'FlorianLepot': 'Florian'}
+users = {'Edouard-chin': 'édouard', 'rlustin': 'Rapha elle', 'aldeck': 'Alexandre', 'cthoret': 'Clément', 'alexandra-ekra': 'Alexandra', 'jvasseur': 'Jérome', 'FlorianLepot': 'Florian', 'amorin274': 'Adrien'}
 
 
 @app.route("/payload/pullrequest", methods=['POST'])
@@ -21,7 +21,7 @@ def pullrequest():
     data = json.loads(request.data)
     state = data['action']
     wasMerged = {True: 'successfully merged', False: 'not merged'}
-    isMergeable = {True: 'can', False: "can not", None: 'I am not sure if it can'}
+    isMergeable = {True: 'can', False: "can not", None: ""}
     pullrequest = data['pull_request']
     if state == 'opened' or state == 'reopened':
         speech = 'New pull request on: ' + pullrequest['base']['repo']['name'] + '. ' + users[pullrequest['user']['login']] + ' wants to merge his branch: ' \
