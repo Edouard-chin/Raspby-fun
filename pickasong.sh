@@ -11,7 +11,7 @@
 # }
 
 pico2wave --lang "fr-FR" -w play.wav "La chanson espagnole du jour" && aplay play.wav
-ssh dudek@192.168.0.11 'bash -s' < volume.sh -- "-50%" "Salut les copains comment ca va"
+ssh dudek@192.168.0.11 'bash -s' < volume.sh -- "-50%" "Mais laissémoi d'abord baisser cette musique nulle"
 mpc findadd "any" "spanish"
 mpc shuffle
 mpc play 10
