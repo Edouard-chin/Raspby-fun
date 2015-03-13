@@ -10,13 +10,13 @@
 # 	done
 # }
 
-ssh pi@192.168.0.31 'bash -s' < volume.sh "-50%" "Salut les copains comment ca va"
+ssh dudek@192.168.0.11 'bash -s' < volume.sh -- "-50%" "Salut les copains comment ca va"
 mpc findadd "any" "spanish"
 mpc shuffle
 mpc play 10
 mpc crop
 while : ; do
     mpc idle
-	ssh pi@192.168.0.31 'bash -s' < volume.sh "+50%" "Ok je vous remets le son"
+	ssh dudek@192.168.0.11 'bash -s' < volume.sh -- "+50%" "Ok je vous remets le son"
 	exit
 done
