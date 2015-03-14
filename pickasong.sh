@@ -11,13 +11,19 @@
 # }
 
 pico2wave --lang "fr-FR" -w play.wav "La chanson espagnole du jour" && aplay play.wav
-ssh dudek@192.168.0.11 'bash -s' < volume.sh -- "-50%" "Mais laissémoi d'abord baisser cette musique nulle"
-mpc findadd "any" "spanish"
-mpc shuffle
-mpc play 10
-mpc crop
-while : ; do
-    mpc idle
-	ssh dudek@192.168.0.11 'bash -s' < volume.sh -- "+50%" "Ok je vous remets le son"
-	exit
+declare -a args
+count=0
+for arg in "Mais laisser moi dabord baisser cette musique nulle"; do
+  args[count]=$(printf '%q' "$arg")
+  count=$((count+1))
 done
+ssh dudek@192.168.0.11 'bash -s' < volume.sh -- "-50%" "${args[@]}"
+mpc -q clear
+mpc -q findadd "any" "spanish"
+mpc -q shuffle
+mpc -q play 10
+mpc -q crop
+sleep 10
+mpc idle
+ssh dudek@192.168.0.11 'bash -s' < volume.sh -- "+50%" ""
+exit
