@@ -26,4 +26,3 @@ mpc -q crop
 sleep 10
 mpc idle
 ssh dudek@192.168.0.11 'bash -s' < volume.sh -- "+50%" ""
-exit

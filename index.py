@@ -55,6 +55,16 @@ def cron_goodMorning():
         abort(401)
     return forkMe('Bonjour tout le monde. Il est 9 heures 45, passez une bonne journée.', 'fr-FR')
 
+@app.route("/cron/spanish-song-time", methods=['GET'])
+def cron_spanishSong():
+    if not check_ip():
+        abort(401)
+    newpid = os.fork()
+    if newpid == 0:
+        call(["./pickasong.sh"])
+    else:
+        return "ok!!"
+
 @app.route("/cron/time-to-eat", methods=['GET'])
 def cron_timeToEat():
     store = ['Sumita', 'Luigi', 'Picard', 'Kebab', 'Subway', 'Repas a L\'anjou', 'Repas au café L\'express']
